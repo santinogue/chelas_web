@@ -1,0 +1,127 @@
+// Names based on http://chir.ag/projects/name-that-color/
+
+$black:          #000000;
+$manatee:        #979798;
+$shark:          #2b2f33;
+$outer-space:    #383d42;
+$mako:           #40474d;
+$bombay:         #b2b5b7;
+$abbey:          #464A4E;
+$trout:          #4D555C;
+$gray:           #908D8D;
+$oslo-gray:      #85878A;
+$silver-chalice: #aeaeae;
+$mercury:        #e1e1e1;
+$alabaster:      #F8F8F8;
+$seashell:       #F1F1F1;
+
+$st-tropaz:      #2a6496;
+$boston-blue:    #3887BE;
+$havelock-blue:  #4A90E2;
+$malibu:         #7DB1FF;
+$scooter:        #3BB2D0;
+$corn-flower:    #9ECCED;
+$polar:          #EBF5FA;
+$studio:         #8b39b9;
+$geebung:        #CE8F1C;
+$husk:           #B89B51;
+$apple-blossom:  #a94442;
+$oyster-pink:    #ebccd1;
+$bizarre:        #f2dede;
+$orange:         #FF681F;
+$mantis:         #6db54d;
+
+$marker-colors: (
+  ('light-red',        #FF4747)
+  ('red',              #D40000)
+  ('dark-red',         #9A0000)
+  ('light-purple',     #D568C0)
+  ('purple',           #A02C89)
+  ('dark-purple',      #6A1D5B)
+  ('light-blue',       #00AEEF)
+  ('blue',             #2C5AA0)
+  ('dark-blue',        #1A355F)
+  ('light-green',      #73FFDF)
+  ('green',            #447821)
+  ('dark-green',       #294914)
+  ('light-orange',     #FF9E5E)
+  ('orange',           #FF6600)
+  ('dark-orange',      #B14700)
+  ('light-pink',       #FF94BF)
+  ('pink',             #FF5599)
+  ('dark-pink',        #DC256E)
+  ('light-brown',      #B5622B)
+  ('brown',            #803300)
+  ('dark-brown',       #622700)
+  ('light-yellow',     #FFE888)
+  ('yellow',           #FFCC00)
+  ('dark-yellow',      #BF9900)
+  ('white',            #FFFFFF)
+  ('gray-25',          #BFBFBF)
+  ('gray-58',          #6A6A6A)
+  ('gray-70',          #4d4d4d)
+  ('gray-85',          #252525)
+  ('black',            #000000)
+);
+
+$poly-colors: (
+  ('red',              #D40000)
+  ('limeade',          #1DB000)
+  ('electric-violet',  #A900E6)
+  ('hollywood-cerise', #E600A9)
+  ('trinidad',         #E64C00)
+  ('deep-cerulean',    #008A99)
+  ('pirate-gold',      #A87000)
+  ('persian-green',    #00A884)
+  ('buddha-gold',      #A8A800)
+  ('black',            #000000)
+);
+
+$label-colors: (
+  ( 'sand',           #E9E96C)
+  ( 'maize',          #F4B54D)
+  ( 'label-orange',   #F4904D)
+  ( 'darkish-pink',   #E25D82)
+  ( 'faded-orange',   #EF6868)
+  ( 'grape',          #753764)
+  ( 'dark-sage',      #59814B)
+  ( 'label-green',    #7BC255)
+  ( 'skyblue',        #6FBECE)
+  ( 'label-blue',     #4D93FF)
+  ( 'white',          white)
+  ( 'black',          black)
+);
+
+$capability-colors: (
+  ('grey',         grey)
+  ('dell',         #376117)
+  ('olive-drab',   #618920)
+  ('citron',       #97b32a)
+  ('pear',         #dae536)
+  ('golden-fizz',  #f7e435)
+  ('fuel-yellow',  #e9a427)
+  ('zest',         #e26e19)
+  ('grenadier',    #dc2706)
+  ('deepskyblue',  deepskyblue)
+);
+
+$non-capability-colors: (
+  ('twine',         rgb(194, 151, 94))
+  ('jaffa',         rgb(244, 121, 53))
+  ('givry',         rgb(247, 223, 190))
+  ('tulip-tree',    rgb(237, 171, 63))
+  ('tuscany',       rgb(179, 93, 50))
+  ('mongoose',      rgb(183, 157, 131))
+  ('rose-bud',      rgb(250, 182, 147))
+  ('sandy-brown',   rgb(245, 142, 92))
+  ('manhattan',     rgb(247, 203, 131))
+  ('copper',        rgb(196, 131, 56))
+  ('antique-brass', rgb(196, 123, 86))
+  ('jaffa-light',   rgb(236, 138, 62))
+  ('porsche',       rgb(228, 160, 89))
+  ('muddy-waters',  rgb(189, 138, 102))
+  ('cameo',         rgb(221, 188, 164))
+  ('tumbleweed',    rgb(219, 183, 131))
+  ('apricot',       rgb(235, 161, 114))
+  ('deepskyblue',   deepskyblue)
+);

@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'Generic Icons';
+  src: url('../../static/fonts/generic_icons/generic_icons.eot');
+  src: url('../../static/fonts/generic_icons/generic_icons.eot?#iefix') format('embedded-opentype'),
+       url('../../static/fonts/generic_icons/generic_icons.woff') format('woff'),
+       url('../../static/fonts/generic_icons/generic_icons.ttf') format('truetype'),
+       url('../../static/fonts/generic_icons/generic_icons.svg#generic_icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.generic-icon {
+  font-family: 'Generic Icons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.generic-icon.icon-circle:before {
+  content: "a";
+}
+
+.generic-icon.icon-marker:before {
+  content: "b";
+}
+
+.generic-icon.icon-plane:before {
+  content: "c";
+}
+
+.generic-icon.icon-square:before {
+  content: "d";
+}
+
+.generic-icon.icon-star:before {
+  content: "e";
+}
+
+.generic-icon.icon-triangle:before {
+  content: "f";
+}
