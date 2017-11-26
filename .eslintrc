@@ -1,0 +1,36 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "standard",
+    "standard-react"
+  ],
+  "plugins": [
+    "babel"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true
+  },
+  "globals": {
+    "__DEV__": false,
+    "__PROD__": false,
+    "__DEBUG__": false,
+    "__COVERAGE__": false,
+    "__BASENAME__": false,
+    "API_URL": false,
+    "MAPRIGHT_URL": false
+  },
+  "rules": {
+    "semi": ["error", "always"],
+    "max-len": [2, 120, 2],
+    "generator-star-spacing": 0,
+    "babel/generator-star-spacing": 1,
+    "prefer-destructuring": ["error", {
+      "array": true,
+      "object": true
+    }, {
+      "enforceForRenamedProperties": false
+    }]
+  }
+}

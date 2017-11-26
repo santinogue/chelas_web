@@ -1,7 +1,9 @@
 import React from 'react';
 import {Route, IndexRedirect} from 'react-router';
 import Layout from './layout/Layout';
+import AdminLayout from './adminLayout';
 import Home from './pages/home';
+import AdminHome from './pages/adminHome';
 
 const createRoutes = (store) => {
   // const reloadUserAndAuthenticate = ({ params }, replace) => {
@@ -43,6 +45,12 @@ const createRoutes = (store) => {
       <Route path='/' component={Layout}>
         <IndexRedirect to='/home' />
         <Route path='/home' component={Home} />
+
+        <Route path='/admin' component={AdminLayout}>
+          <IndexRedirect to='/admin/home' />
+          <Route path='/admin/home' component={AdminHome} />
+        </Route>
+
         {/* <Route path='/pricing' component={Pricing} />
         <Route path='/parcels_subscriptions' component={ParcelSubscription} onEnter={reloadUserAndAuthenticate} />
         <Route path='/parcels_subscription' component={ParcelSubscription} onEnter={reloadUserAndAuthenticate} />

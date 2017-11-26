@@ -18,6 +18,10 @@ module.exports = {
       path.resolve('./node_modules')
     ]
   },
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './'
+  },
   devtool: 'source-map',
   module: {
     loaders: [
