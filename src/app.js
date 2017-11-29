@@ -4,7 +4,8 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import createRoutes from './routes';
 import store from './store';
-
+import 'milligram/dist/milligram.css';
+import 'react-dd-menu/dist/react-dd-menu.css';
 
 const App = props => (
   <Provider store={props.store}>

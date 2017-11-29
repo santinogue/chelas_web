@@ -1,4 +1,30 @@
 .admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 80px;
   background-color: purple;
+
+  i {
+    font-size: 34px;
+    color: #bbb9b9;
+    margin: 20px;
+    cursor: pointer;
+  }
+
+  &__right-side {
+  }
+
+  &__left-side {
+  }
+
+  &__action {
+    display: flex;
+    padding: 10px;
+    height: 40px;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
 }

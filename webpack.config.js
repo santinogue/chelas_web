@@ -6,11 +6,18 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: 'body'
 });
 
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const extractSass = new ExtractTextPlugin({
+    filename: "bundle.css",
+    disable: process.env.NODE_ENV === "development"
+});
+
 module.exports = {
   entry: __dirname + '/src/app.js',
   output: {
     path: path.resolve('dist'),
-    filename: 'index_bundle.js'
+    filename: 'index_bundle.js',
+    publicPath: '/'
   },
   resolve: {
     modules: [
@@ -19,15 +26,26 @@ module.exports = {
     ]
   },
   devServer: {
-    historyApiFallback: true,
-    contentBase: './'
+    historyApiFallback: true
   },
   devtool: 'source-map',
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
+      {
+            test: /\.(scss|css)$/,
+            use: extractSass.extract({
+                use: [{
+                    loader: "css-loader"
+                }, {
+                    loader: "sass-loader"
+                }],
+                // use style-loader in development
+                fallback: "style-loader"
+            })
+        }
     ]
   },
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [HtmlWebpackPluginConfig, extractSass]
 }
