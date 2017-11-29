@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import './adminHeader.scss';
 
 class AdminHeader extends PureComponent {
   render () {
@@ -9,3 +10,5 @@ class AdminHeader extends PureComponent {
     );
   };
 }
+
+export default AdminHeader;
