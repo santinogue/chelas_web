@@ -1,5 +1,10 @@
 {
   "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "extends": [
     "standard",
     "standard-react"
@@ -31,6 +36,45 @@
       "object": true
     }, {
       "enforceForRenamedProperties": false
-    }]
+    }],
+    # Evaluate the use of the following rules.
+    "react/jsx-closing-bracket-location": "error",
+    "react/jsx-closing-tag-location": "error",
+    "react/jsx-tag-spacing": "error",
+    "react/jsx-curly-spacing": "error",
+    "react/jsx-boolean-value": "error",
+    "react/no-string-refs": "error",
+    "react/jsx-wrap-multilines": "error",
+    "react/self-closing-comp": "error",
+    "react/jsx-no-bind": "error",
+    "no-multi-spaces": "error",
+    "prefer-const": "error",
+    "object-shorthand": "error",
+    "array-callback-return": "error",
+    "prefer-template": "error",
+    "template-curly-spacing": "error",
+    "space-before-function-paren": "error",
+    "no-param-reassign": "error",
+    "prefer-arrow-callback": "error",
+    "arrow-spacing": "error",
+    "arrow-parens": ["error", "as-needed"],
+    "arrow-body-style": "error",
+    "dot-notation": "error",
+    "one-var": "error",
+    "no-multi-assign": "error",
+    "eqeqeq": "error",
+    "no-mixed-operators": "error",
+    "nonblock-statement-body-position": "error",
+    "brace-style": "error",
+    "no-else-return": "error",
+    "space-before-blocks": "error",
+    "keyword-spacing": "error",
+    "space-infix-ops": "error",
+    "padded-blocks": "error",
+    "space-in-parens": "error",
+    "array-bracket-spacing": "error",
+    "object-curly-spacing": "error",
+    "comma-style": "error",
+    "comma-dangle": ["error", "always-multiline"]
   }
 }
