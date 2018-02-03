@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class Marker extends React.PureComponent {
+class Markers extends React.PureComponent {
   componentDidMount () {
     this.addMArkersToMap();
   }
@@ -14,10 +15,20 @@ class Marker extends React.PureComponent {
 
     map.loadImage('https://cdn4.iconfinder.com/data/icons/party-and-celebrations-6/128/111-128.png', (error, image) => {
       if (error) throw error;
-      map.addImage('beer', image);
+      map.addImage('bar', image);
 
-      this.addMarkersSource(geoJSONElements);
-      this.addMarkersLayer();
+      map.loadImage('https://cdn0.iconfinder.com/data/icons/science-5-2/97/217-128.png', (error, image) => {
+        if (error) throw error;
+        map.addImage('store', image);
+
+        map.loadImage('https://cdn0.iconfinder.com/data/icons/winter-lollipop/128/Cart.png', (error, image) => {
+          if (error) throw error;
+          map.addImage('shop', image);
+
+          this.addMarkersSource(geoJSONElements);
+          this.addMarkersLayer();
+        });
+      });
     });
   }
 
@@ -43,7 +54,7 @@ class Marker extends React.PureComponent {
       'type': 'symbol',
       'source': 'markers-source',
       'layout': {
-        'icon-image': 'beer',
+        'icon-image': '{iconName}',
         'icon-allow-overlap': false,
         'icon-padding': 0,
         'icon-size': {
@@ -60,13 +71,31 @@ class Marker extends React.PureComponent {
   }
 
   buildGeoJSON (markerData) {
+    const {venue_type: type} = markerData;
+    let iconName;
+
+    switch (type) {
+      case 'Tienda':
+        iconName = 'shop';
+        break;
+      case 'Bar':
+      case 'Restaurant':
+        iconName = 'bar';
+        break;
+      default:
+        iconName = 'store';
+    }
+
     return {
       'type': 'Feature',
       'geometry': {
         'type': 'Point',
         'coordinates': [markerData.lng, markerData.lat],
       },
-      'properties': markerData,
+      'properties': {
+        iconName,
+        ...markerData,
+      },
     };
   }
 
@@ -75,4 +104,9 @@ class Marker extends React.PureComponent {
   }
 }
 
-export default Marker;
+Markers.propTypes = {
+  map: PropTypes.object,
+  markersData: PropTypes.array,
+};
+
+export default Markers;

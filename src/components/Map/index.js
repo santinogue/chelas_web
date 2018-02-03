@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import mapboxgl, {Map} from 'mapbox-gl/dist/mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './map.scss';
@@ -7,7 +8,7 @@ class MapComponent extends React.PureComponent {
   constructor (props) {
     super(props);
 
-    this.state = {map: null};
+    this.state = {map: null, loaded: false};
   }
 
   componentWillMount () {
@@ -17,16 +18,18 @@ class MapComponent extends React.PureComponent {
   componentDidMount () {
     const map = new Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v9',
+      style: 'mapbox://styles/mapbox/dark-v9',
       center: [-56.1598280900416, -34.9071404591763],
       zoom: 9,
     });
+
+    map.on('load', () => { this.setState({loaded: true}); });
 
     this.setState({map});
   }
 
   render () {
-    const {map} = this.state;
+    const {map, loaded} = this.state;
     const children = React.Children.map(
       this.props.children,
       child => (child ? React.cloneElement(child, {map}) : null)
@@ -34,10 +37,14 @@ class MapComponent extends React.PureComponent {
 
     return (
       <div id='map'>
-        {map && children ? children[0] : null}
+        {loaded && children ? children : null}
       </div>
     );
   }
 }
+
+MapComponent.propTypes = {
+  children: PropTypes.node,
+};
 
 export default MapComponent;
