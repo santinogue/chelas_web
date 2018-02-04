@@ -1,19 +1,36 @@
 import React from 'react';
-import {data} from 'static/data';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import MapComponent from 'components/Map';
 import Markers from 'components/Markers';
 import HoverPopup from 'components/HoverPopup';
+import Sidebar from 'components/Sidebar';
 
-export default class Home extends React.Component {
+class Home extends React.Component {
   render () {
-    return (
-      <MapComponent>
-        <Markers
-          markersData={data}
-        />
+    const {markers} = this.props;
 
-        <HoverPopup />
-      </MapComponent>
+    return (
+      <div>
+        <Sidebar />
+        <MapComponent>
+          <Markers
+            markersData={markers}
+          />
+
+          <HoverPopup />
+        </MapComponent>
+      </div>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  markers: state.markers.markers,
+});
+
+Home.propTypes = {
+  markers: PropTypes.array,
+};
+
+export default connect(mapStateToProps, null)(Home);

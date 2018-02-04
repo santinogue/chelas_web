@@ -6,6 +6,16 @@ class Markers extends React.PureComponent {
     this.addMArkersToMap();
   }
 
+  componentDidUpdate (prevProps) {
+    const {markersData} = this.props;
+    const geoJSONElements = [];
+    markersData.forEach(markerData => {
+      geoJSONElements.push(this.buildGeoJSON(markerData));
+    });
+
+    this.updateMarkersSource(geoJSONElements);
+  };
+
   addMArkersToMap () {
     const {markersData, map} = this.props;
     const geoJSONElements = [];
@@ -26,7 +36,7 @@ class Markers extends React.PureComponent {
           map.addImage('shop', image);
 
           this.addMarkersSource(geoJSONElements);
-          this.addMarkersLayer();
+          this.addMarkersLayer(geoJSONElements);
         });
       });
     });
@@ -46,7 +56,19 @@ class Markers extends React.PureComponent {
     );
   }
 
-  addMarkersLayer () {
+  updateMarkersSource (geoJSONElements) {
+    const {map} = this.props;
+    const markersSource = map.getSource('markers-source');
+
+    if (markersSource) {
+      markersSource.setData({
+        'type': 'FeatureCollection',
+        'features': geoJSONElements,
+      });
+    }
+  }
+
+  addMarkersLayer (geoJSONElements) {
     const {map} = this.props;
 
     map.addLayer({
@@ -67,6 +89,7 @@ class Markers extends React.PureComponent {
           ],
         },
       },
+      filter: ['==', ['get', 'visibility'], true],
     });
   }
 

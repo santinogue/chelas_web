@@ -1,16 +1,18 @@
-import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
+import {combineReducers} from 'redux';
+import {routerReducer} from 'react-router-redux';
 import dashboardReducer from '../reducers/dashboard';
+import markersdReducer from '../reducers/markers';
 
-export const makeRootReducer = (asyncReducers) => {
-  return combineReducers({
+export const makeRootReducer = asyncReducers => (
+  combineReducers({
     router: routerReducer,
     dashboard: dashboardReducer,
-    ...asyncReducers
-  });
-};
+    markers: markersdReducer,
+    ...asyncReducers,
+  })
+);
 
-export const injectReducer = (store, { key, reducer }) => {
+export const injectReducer = (store, {key, reducer}) => {
   store.asyncReducers[key] = reducer;
   store.replaceReducer(makeRootReducer(store.asyncReducers));
 };

@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react';
 import MediaQuery from 'react-responsive';
-import DropdownMenu from 'react-dd-menu';
 import './adminHeader.scss';
 
 class AdminHeader extends PureComponent {
@@ -40,18 +39,6 @@ class AdminHeader extends PureComponent {
           <div className='admin-header__right-side'>
             <i className='ion-log-out' />
           </div>
-        </MediaQuery>
-
-        <MediaQuery maxWidth={400}>
-          <DropdownMenu {...menuOptions}>
-            <li className='admin-header__action'>
-              Home
-            </li>
-
-            <li className='admin-header__action'>
-              Sign Out
-            </li>
-          </DropdownMenu>
         </MediaQuery>
       </div>
     );
