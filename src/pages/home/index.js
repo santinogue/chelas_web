@@ -12,7 +12,7 @@ class Home extends React.Component {
 
     return (
       <div>
-        <Panel />
+        <Panel markers={markers} />
         <MapComponent>
           <Markers
             markersData={markers}

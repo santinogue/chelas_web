@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import className from 'classnames';
 import DropDown from '../DropDown';
+import Search from '../Search';
 import {toggleVisibility} from 'actions/markers';
 
 import './panel.scss';
@@ -42,11 +43,12 @@ class Panel extends React.PureComponent {
 
   render () {
     const {showFilter, top, right} = this.state;
-    const {toggleVisibility, visibilities} = this.props;
+    const {toggleVisibility, visibilities, markers} = this.props;
 
     return (
       <div className='panel'>
-        <input className='panel-search' type='search' placeholder='Buscar' />
+        <Search markers={markers} />
+
         <div
           onClick={this.toggleFilter}
           className='filter-button'
