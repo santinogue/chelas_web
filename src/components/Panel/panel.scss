@@ -50,6 +50,9 @@
       background-color: #a95fd6;
     }
   }
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .filter-button {

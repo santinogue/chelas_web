@@ -60,6 +60,7 @@ class DropDown extends React.PureComponent {
       position,
       side,
       onMouseLeave,
+      onMouseEnter,
       delay,
     } = this.props;
 
@@ -96,6 +97,7 @@ class DropDown extends React.PureComponent {
     return (
       <div
         onMouseLeave={onMouseLeave}
+        onMouseEnter={onMouseEnter}
         className={dropDownclassName}
         style={style}
       >
@@ -116,6 +118,7 @@ DropDown.defaultProps = {
 DropDown.propTypes = {
   children: PropTypes.node,
   onMouseLeave: PropTypes.func,
+  onMouseEnter: PropTypes.func,
   width: PropTypes.number,
   top: PropTypes.number,
   bottom: PropTypes.number,

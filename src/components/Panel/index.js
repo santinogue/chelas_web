@@ -19,6 +19,7 @@ class Panel extends React.PureComponent {
 
     this.toggleFilter = ::this.toggleFilter;
     this.onMouseLeaveDropDown = ::this.onMouseLeaveDropDown;
+    this.onMouseEnterDropDown = ::this.onMouseEnterDropDown;
   }
 
   toggleFilter () {
@@ -33,6 +34,10 @@ class Panel extends React.PureComponent {
 
   onMouseLeaveDropDown () {
     this.setState({showFilter: false});
+  }
+
+  onMouseEnterDropDown () {
+    this.setState({showFilter: true});
   }
 
   render () {
@@ -59,6 +64,7 @@ class Panel extends React.PureComponent {
         <DropDown
           isOpen={showFilter}
           onMouseLeave={this.onMouseLeaveDropDown}
+          onMouseEnter={this.onMouseEnterDropDown}
           width={220}
           delay={1}
           top={top}
