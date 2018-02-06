@@ -2,29 +2,75 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import className from 'classnames';
+import DropDown from '../DropDown';
 import {toggleVisibility} from 'actions/markers';
 
-import './sidebar.scss';
+import './panel.scss';
 
 const BAR_ICON = 'https://cdn4.iconfinder.com/data/icons/party-and-celebrations-6/128/111-128.png';
 const STORE_ICON = 'https://cdn0.iconfinder.com/data/icons/science-5-2/97/217-128.png';
 const SHOP_ICON = 'https://cdn0.iconfinder.com/data/icons/winter-lollipop/128/Cart.png';
 
-class Sidebar extends React.PureComponent {
+class Panel extends React.PureComponent {
+  constructor (props) {
+    super(props);
+
+    this.state = {showFilter: false, top: 0, left: 0};
+
+    this.toggleFilter = ::this.toggleFilter;
+    this.onMouseLeaveDropDown = ::this.onMouseLeaveDropDown;
+  }
+
+  toggleFilter () {
+    const filterButton = document.querySelector('.filter-button');
+    const top = parseInt(filterButton.getBoundingClientRect().y + filterButton.clientHeight + 10);
+    const right = parseInt(document.body.clientWidth - filterButton.getBoundingClientRect().x) - filterButton.clientWidth;
+
+    this.setState(prevState => (
+      {showFilter: !prevState.showFilter, top, right}
+    ));
+  }
+
+  onMouseLeaveDropDown () {
+    this.setState({showFilter: false});
+  }
+
   render () {
+    const {showFilter, top, right} = this.state;
     const {toggleVisibility, visibilities} = this.props;
 
-    console.log(visibilities);
-
     return (
-      <div className='sidebar'>
-        <div className='filter-title'>
-          Filtros
+      <div className='panel'>
+        <input className='panel-search' type='search' placeholder='Buscar' />
+        <div
+          onClick={this.toggleFilter}
+          className='filter-button'
+        >
+          <div className='filter-title'>
+            <i className='fas fa-filter' />
+            <div>Filtros</div>
+          </div>
+
+          <div className='filter-button__arrow'>
+            <i className='fas fa-caret-down' />
+          </div>
         </div>
 
-        <Filters
-          visibilities={visibilities}
-          toggleVisibility={toggleVisibility} />
+        <DropDown
+          isOpen={showFilter}
+          onMouseLeave={this.onMouseLeaveDropDown}
+          width={220}
+          delay={1}
+          top={top}
+          right={right}
+          position='top'
+          side='right'
+        >
+          <Filters
+            visibilities={visibilities}
+            toggleVisibility={toggleVisibility}
+          />
+        </DropDown>
       </div>
     );
   }
@@ -79,7 +125,7 @@ const FilterItem = ({type, visibility, icon, name, onClick}) => {
   );
 };
 
-Sidebar.propTypes = {
+Panel.propTypes = {
 
 };
 
@@ -103,4 +149,4 @@ const mapDispatchToProps = {
   toggleVisibility,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default connect(mapStateToProps, mapDispatchToProps)(Panel);

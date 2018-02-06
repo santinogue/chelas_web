@@ -48,7 +48,8 @@
     "webpack-dev-server": "^2.9.4"
   },
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack -p --config webpack.config.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import MapComponent from 'components/Map';
 import Markers from 'components/Markers';
 import HoverPopup from 'components/HoverPopup';
-import Sidebar from 'components/Sidebar';
+import Panel from 'components/Panel';
 
 class Home extends React.Component {
   render () {
@@ -12,7 +12,7 @@ class Home extends React.Component {
 
     return (
       <div>
-        <Sidebar />
+        <Panel />
         <MapComponent>
           <Markers
             markersData={markers}

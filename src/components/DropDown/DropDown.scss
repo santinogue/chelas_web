@@ -1,0 +1,86 @@
+.react-dropdown {
+  position: absolute;
+  z-index: 10;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 2s ease-in-out;
+
+  &--mounted {
+    display: block;
+  }
+
+  &--visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__content {
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  &__tip-top-left {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 2px;
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid white;
+    }
+  }
+
+  &__tip-top-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2px;
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid white;
+    }
+  }
+
+  &__tip-bottom-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 2px;
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid white;
+    }
+  }
+
+  &__tip-bottom-left {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 2px;
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid white;
+    }
+  }
+}
