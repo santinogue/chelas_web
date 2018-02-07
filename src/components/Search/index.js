@@ -1,7 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Fuse from 'fuse-js-latest';
 import DropDown from '../DropDown';
+
+// Actions.
+import {selectMarker} from 'actions/markers';
 
 import './Search.scss';
 
@@ -50,6 +54,7 @@ class Search extends React.PureComponent {
 
   renderItems () {
     const {items} = this.state;
+    const {selectMarker} = this.props;
 
     return (
       <DropDown
@@ -64,7 +69,8 @@ class Search extends React.PureComponent {
         <div className='search-items'>
           {items.map((item, index) => {
             const onClick = () => {
-              console.log(item.chelasId);
+              selectMarker(item.chelasId);
+              this.setState({items: []});
             };
 
             return (
@@ -89,6 +95,11 @@ const Item = ({name, onClick}) => (
 
 Search.propTypes = {
   markers: PropTypes.array,
+  selectMarker: PropTypes.func,
 };
 
-export default Search;
+const mapDispatchToProps = {
+  selectMarker,
+};
+
+export default connect(null, mapDispatchToProps)(Search);

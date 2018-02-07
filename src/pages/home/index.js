@@ -5,15 +5,19 @@ import MapComponent from 'components/Map';
 import Markers from 'components/Markers';
 import HoverPopup from 'components/HoverPopup';
 import Panel from 'components/Panel';
+import InfoPanel from 'components/InfoPanel';
 
 class Home extends React.Component {
   render () {
-    const {markers} = this.props;
+    const {markers, selectedMarker, showingInfoMarker} = this.props;
 
     return (
       <div>
         <Panel markers={markers} />
-        <MapComponent>
+        <InfoPanel marker={showingInfoMarker} />
+        <MapComponent
+          selectedMarker={selectedMarker}
+        >
           <Markers
             markersData={markers}
           />
@@ -25,12 +29,26 @@ class Home extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  markers: state.markers.markers,
-});
+const mapStateToProps = state => {
+  const selectedMarker = state.markers.markers.find(marker => (
+    marker.selected === true
+  ));
+
+  const showingInfoMarker = state.markers.markers.find(marker => (
+    marker.showingInfo === true
+  ));
+
+  return {
+    showingInfoMarker,
+    selectedMarker,
+    markers: state.markers.markers,
+  };
+};
 
 Home.propTypes = {
   markers: PropTypes.array,
+  selectedMarker: PropTypes.object,
+  showingInfoMarker: PropTypes.object,
 };
 
 export default connect(mapStateToProps, null)(Home);

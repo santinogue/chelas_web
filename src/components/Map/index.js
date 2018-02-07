@@ -1,6 +1,11 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import mapboxgl, {Map} from 'mapbox-gl/dist/mapbox-gl';
+
+// Actions
+import {deselectMarker} from 'actions/markers';
+
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './map.scss';
 
@@ -28,6 +33,17 @@ class MapComponent extends React.PureComponent {
     this.setState({map});
   }
 
+  componentDidUpdate (prevProps) {
+    const {map} = this.state;
+    const {selectedMarker, deselectMarker} = this.props;
+
+    if (selectedMarker) {
+      const {lng, lat} = selectedMarker;
+      map.flyTo({center: [lng, lat], zoom: 17});
+      deselectMarker();
+    }
+  }
+
   render () {
     const {map, loaded} = this.state;
     const children = React.Children.map(
@@ -45,6 +61,12 @@ class MapComponent extends React.PureComponent {
 
 MapComponent.propTypes = {
   children: PropTypes.node,
+  selectedMarker: PropTypes.object,
+  deselectMarker: PropTypes.func,
 };
 
-export default MapComponent;
+const mapDispatchToProps = {
+  deselectMarker,
+};
+
+export default connect(null, mapDispatchToProps)(MapComponent);
