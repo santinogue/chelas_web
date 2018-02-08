@@ -7,6 +7,7 @@
   opacity: 0;
   background: white;
   transition: width 1s, opacity 1.5s ease-in-out;
+  overflow-x: scroll;
 
   &--visible {
     width: 25%;

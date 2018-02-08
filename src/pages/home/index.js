@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MapComponent from 'components/Map';
 import Markers from 'components/Markers';
 import HoverPopup from 'components/HoverPopup';
+import MapEventsBinder from 'components/MapEventsBinder';
 import Panel from 'components/Panel';
 import InfoPanel from 'components/InfoPanel';
 
@@ -23,6 +24,7 @@ class Home extends React.Component {
           />
 
           <HoverPopup />
+          <MapEventsBinder />
         </MapComponent>
       </div>
     );

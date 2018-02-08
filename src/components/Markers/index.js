@@ -77,15 +77,16 @@ class Markers extends React.PureComponent {
       'source': 'markers-source',
       'layout': {
         'icon-image': '{iconName}',
-        'icon-allow-overlap': false,
+        'icon-allow-overlap': true,
         'icon-padding': 0,
         'icon-size': {
           'stops': [
-            [1, 0.05],
-            [5, 0.1],
-            [10, 0.2],
-            [15, 0.4],
-            [20, 0.8],
+            [1, 0.02],
+            [5, 0.05],
+            [10, 0.1],
+            [15, 0.25],
+            [18, 0.35],
+            [20, 0.45],
           ],
         },
       },
